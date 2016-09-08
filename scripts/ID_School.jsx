@@ -54,7 +54,12 @@ function Processor() {
         //print folder
         var printFolder = new Folder( this.params["source"] + '//Print'  );
         if (!printFolder.exists) printFolder.create();    
-        this.params['printfolder'] = printFolder.fsName;
+        this.params['printfolder'] = printFolder.fsName;     
+        
+        //sims folder
+        var printFolder = new Folder( this.params["source"] + '//Sims'  );
+        if (!printFolder.exists) printFolder.create();    
+        this.params['simsfolder'] = printFolder.fsName;
     }
 
     this.processSchool = function(){
@@ -76,6 +81,10 @@ function Processor() {
                   
                   //look for pupil folders inside class
                   var classFolder = new Folder(classArray[i]);
+                  
+                  //create class folder inside the sims folder                  
+                  var simsClassFolder = new Folder( this.params["simsfolder"] + '//' + classFolder.name );
+                  if (!simsClassFolder.exists) simsClassFolder.create();
                   
                   //get all pupils in the class
                   var pupilArray = classFolder.getFiles(onlyFolders);    
@@ -146,8 +155,8 @@ function Processor() {
         writeToFile (this.params['ref'] + ' - ' + pw, this.params['source'] + '\\' + this.params['class'] + '\\' + this.params['pupilname']);
         
         //remove the JPEG folder and contents (it's been copied to internet)        
-        this.deleteFiles(filesArray); 
-        jpgFolder.remove();            
+ //       this.deleteFiles(filesArray); 
+ //       jpgFolder.remove();            
     }
 
     this.placeFiles = function( filesArray ){
@@ -156,16 +165,26 @@ function Processor() {
          for (j=0; j<this.params['imagecount']; j+=1)
          {            
             var f = new File(filesArray[j]);  
+            
+            // Convert the file object to a string for matching purposes (match only works on String objects)  
+            var fileString = String(f); 
+            
+            //copy the first image to the class folder inside the sims folder. nb. first image ends with -1 or -01 followed by the file extension
+            if ( fileString.match(/-(0?)1.(jpg)$/i) || fileString.match(/-(0?)1.(CR2)$/i) ) 
+            {
+                f.copy(new Folder(this.params['simsfolder'] + "\\" + this.params['classname'] + "\\" +f.displayName));
+            }       
+            
             doc.pages[0].rectangles[j].place(f, false);  
             doc.pages[0].rectangles[j].images[0].select();
             sel = doc.selection[0];
             var h = sel.geometricBounds[2] - sel.geometricBounds[0];
             var w = sel.geometricBounds[3] - sel.geometricBounds[1] ;
             doc.pages[0].rectangles[j].images[0].fit(FitOptions.PROPORTIONALLY); 
-//~             if (w > h)
-//~             {
-//~                     sel.rotationAngle = 90;
-//~             }
+            if (w > h)
+            {
+                    sel.rotationAngle = 90;
+            }
              doc.pages[0].rectangles[j].images[0].fit(FitOptions.PROPORTIONALLY); 
 
             //move files into a  class folder in internet  with a _TIF_PEFN suffix

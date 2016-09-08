@@ -6,7 +6,7 @@ g_ProcessSchool = {
     }
 };
 
-//Uncomment if you want to run file outside of photoshop
+//~ //Uncomment if you want to run file outside of photoshop
 //~ main();
 
 function main(){
