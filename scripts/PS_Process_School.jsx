@@ -207,9 +207,9 @@ function GlobalVariables() {
 	strSaveAsTIFFHelp = localize( "$$$/JavaScripts/ImageProcessor/SaveAsTIFFHelp=Save a file to the TIFF format" );
 	strLZW = localize( "$$$/JavaScripts/ImageProcessor/LZW=LZ&W Compression" );
 	strLZWHelp = localize( "$$$/JavaScripts/ImageProcessor/LZWHelp=Use LZW compression when saving in TIFF format" );
-	strCopyright = localize( "$$$/JavaScripts/ImageProcessor/Copyright=Copyright Info:" );
+	strCopyright = localize( "$$$/JavaScripts/ImageProcessor/Copyright=Delivered By:" );
 	strCopyrightHelp = localize( "$$$/JavaScripts/ImageProcessor/CopyrightHelp=Add copyright metadata to your images" );
-	strWatermark = localize( "$$$/JavaScripts/ImageProcessor/Watermark=Watermark:" );
+	strWatermark = localize( "$$$/JavaScripts/ImageProcessor/Watermark=Watermark/Order By:" );
 	strWatermarkHelp = localize( "$$$/JavaScripts/ImageProcessor/WatermarkHelp=Add watermark metadata to your images" );
     strW = localize( "$$$/JavaScripts/ImageProcessor/W=W:" );
 	strWHelp = localize( "$$$/JavaScripts/ImageProcessor/WHelp=Type in a width to resize image" );
@@ -844,15 +844,15 @@ function ImageProcessor() {
 		l.grpCopyright.orientation = 'row';
 		l.grpCopyright.alignChildren = 'center';
         
-		d.stCopyrightInfo = l.grpCopyright.add( 'statictext', undefined, strCopyright );
-		d.stCopyrightInfo.helpTip = strCopyrightHelp;
+		d.stCopyrightInfo = l.grpCopyright.add( 'statictext', undefined, 'Delivered by:' );
+		d.stCopyrightInfo.helpTip = 'Date of delivery to school';
 		
 		d.hidden5 = l.grpCopyright.add( 'edittext' );
 		d.hidden5.preferredSize.width = 1;
 		d.hidden5.visible = showHidden;
 
 		d.etCopyrightInfo = l.grp4Info.grpRight.add( 'edittext' );
-		d.etCopyrightInfo.helpTip = strCopyrightHelp;
+		d.etCopyrightInfo.helpTip =  'Date of delivery to school';;
 		d.etCopyrightInfo.alignment = 'fill';
 		d.etCopyrightInfo.preferredSize.width = actionDropDownLength * 2;
 
