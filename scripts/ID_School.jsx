@@ -19,7 +19,7 @@ function process(){
     var gP = new Processor();
     var strTitle = "Process School";
 
-    $.writeln("Inside Indesign")
+    $.writeln("Read XML file")
     //read in parameters from xml file
     g_script_XMLFunctions.ReadXMLFile(gP.params, strTitle);
     
@@ -32,6 +32,10 @@ function process(){
     $.writeln("Calling process school")
     //process classes in school
     gP.processSchool();
+    
+     $.writeln("Move files to Dropbox")
+//~     All processing done so now move Edit, Internet and Order folders to Dropbox
+    gP.moveToDropbox();
     
     alert('Finished!');
 }
@@ -243,7 +247,73 @@ function Processor() {
             f.remove();
         }
     }
+
+    this.moveToDropbox = function(){
+ 
+        $.writeln("Move Internet folder to Dropbox")
+        copyFolder(new Folder("C:/TQ Sept 2016/Internet"), new Folder("C:/Git/DropboxMove/Internet"));
+        
+        $.writeln("Remove Internet folder")
+        removeFolder(new Folder("C:/TQ Sept 2016/Internet")) 
+        
+        $.writeln("Move Edit folder to Dropbox")
+        copyFolder(new Folder("C:/TQ Sept 2016/Edit"), new Folder("C:/Git/DropboxMove/Edit"));
+        
+        $.writeln("Remove Edit folder")
+        removeFolder(new Folder("C:/TQ Sept 2016/Edit")) 
+        
+        $.writeln("Move Order folder to Dropbox")
+        copyFolder(new Folder("C:/TQ Sept 2016/Order"), new Folder("C:/Git/DropboxMove/Order"));
+        
+        $.writeln("Remove Order folder")
+        removeFolder(new Folder("C:/TQ Sept 2016/Order"))
+    }    
+}  
+  
+  
+function removeFolder(deleteFolder){
+    var deleteChildrenArr = deleteFolder.getFiles();
+    for (var i = 0; i < deleteChildrenArr.length; i++) {
+        var deleteChild = deleteChildrenArr[i]; 
+        if (deleteChild instanceof File) {  
+            deleteChild.remove();  
+        }  
+        else {  
+            removeFolder(deleteChild);  
+            deleteChild.remove();
+        } 
+    }
+    deleteFolder.remove();
 }
+
+  
+function copyFolder(sourceFolder, destinationFolder) {  
+    var sourceChildrenArr = sourceFolder.getFiles();  
+    for (var i = 0; i < sourceChildrenArr.length; i++) {  
+        var sourceChild = sourceChildrenArr[i];  
+        var destinationChildStr = destinationFolder.fsName + "/" + sourceChild.name;  
+        if (sourceChild instanceof File) {  
+            copyFile(sourceChild, new File(destinationChildStr));  
+        }  
+        else {  
+            copyFolder(sourceChild, new Folder(destinationChildStr));  
+        }  
+    }  
+}  
+  
+  
+function copyFile(sourceFile, destinationFile) {  
+    createFolder(destinationFile.parent);  
+    sourceFile.copy(destinationFile);  
+}  
+  
+  
+function createFolder(folder) {  
+    if (folder.parent !== null && !folder.parent.exists) {  
+        createFolder(folder.parent);  
+    }  
+    folder.create();  
+} 
 
  function writeToFile(text, logPath) {
     path = logPath + "_TIF_PEFN" + "\\" + "paswords.txt" 
