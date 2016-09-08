@@ -193,6 +193,12 @@ function Processor() {
         var refFrame = allTextFrames[ parseInt(this.params['imagecount'])+1 ] ;
         refFrame.contents = pw;
         
+        var onlineFrame = allTextFrames[ parseInt(this.params['imagecount'])+2 ] ;
+        onlineFrame.contents = this.params['watermark'];
+        
+        var deliveredFrame = allTextFrames[ parseInt(this.params['imagecount'])+3 ] ;
+        deliveredFrame.contents = this.params['info'];
+        
         //store ref for filename
         pdfName = this.params['ref'];
         
