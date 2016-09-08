@@ -155,8 +155,8 @@ function Processor() {
         writeToFile (this.params['ref'] + ' - ' + pw, this.params['source'] + '\\' + this.params['class'] + '\\' + this.params['pupilname']);
         
         //remove the JPEG folder and contents (it's been copied to internet)        
- //       this.deleteFiles(filesArray); 
- //       jpgFolder.remove();            
+        this.deleteFiles(filesArray); 
+        jpgFolder.remove();            
     }
 
     this.placeFiles = function( filesArray ){
