@@ -56,7 +56,7 @@ function Processor() {
         this.params['internetfolder'] = internetFolder.fsName;
         
         //print folder
-        var printFolder = new Folder( this.params["source"] + '//Print'  );
+        var printFolder = new Folder( this.params["source"] + '//Orders'  );
         if (!printFolder.exists) printFolder.create();    
         this.params['printfolder'] = printFolder.fsName;     
         
@@ -251,22 +251,22 @@ function Processor() {
     this.moveToDropbox = function(){
  
         $.writeln("Move Internet folder to Dropbox")
-        copyFolder(new Folder("C:/TQ Sept 2016/Internet"), new Folder("C:/Git/DropboxMove/Internet"));
+        copyFolder(this.params["source"] + '//Internet', this.params["dest"] + '//Internet');
         
         $.writeln("Remove Internet folder")
-        removeFolder(new Folder("C:/TQ Sept 2016/Internet")) 
+        removeFolder(new Folder(this.params["source"] + '//Internet')) 
         
-        $.writeln("Move Edit folder to Dropbox")
-        copyFolder(new Folder("C:/TQ Sept 2016/Edit"), new Folder("C:/Git/DropboxMove/Edit"));
+        $.writeln("Move Edited folder to Dropbox")
+        copyFolder(this.params["source"] + '//Edited'), this.params["dest"] + '//Edited');
         
-        $.writeln("Remove Edit folder")
-        removeFolder(new Folder("C:/TQ Sept 2016/Edit")) 
+        $.writeln("Remove Edited folder")
+        removeFolder(this.params["source"] + '//Edited') 
         
         $.writeln("Move Order folder to Dropbox")
-        copyFolder(new Folder("C:/TQ Sept 2016/Order"), new Folder("C:/Git/DropboxMove/Order"));
+        copyFolder(this.params["source"] + '//Order', this.params["dest"] + '//Order');
         
         $.writeln("Remove Order folder")
-        removeFolder(new Folder("C:/TQ Sept 2016/Order"))
+        removeFolder(this.params["source"] + '//Order')
     }    
 }  
   
