@@ -251,22 +251,22 @@ function Processor() {
     this.moveToDropbox = function(){
  
         $.writeln("Move Internet folder to Dropbox")
-        copyFolder(this.params["source"] + '//Internet', this.params["dest"] + '//Internet');
+        copyFolder(new Folder(this.params["source"] + '//Internet'),   new Folder( this.params["dest"] + '\\Internet'));
         
         $.writeln("Remove Internet folder")
-        removeFolder(new Folder(this.params["source"] + '//Internet')) 
+        removeFolder(new Folder(this.params["source"] + '//Internet')) ;
         
         $.writeln("Move Edited folder to Dropbox")
-        copyFolder(this.params["source"] + '//Edited'), this.params["dest"] + '//Edited');
+        copyFolder( new Folder( this.params["source"] + '//Edited'),  new Folder( this.params["dest"] + '//Edited'));
         
         $.writeln("Remove Edited folder")
-        removeFolder(this.params["source"] + '//Edited') 
+        removeFolder( new Folder( this.params["source"] + '//Edited')) ;
         
         $.writeln("Move Order folder to Dropbox")
-        copyFolder(this.params["source"] + '//Order', this.params["dest"] + '//Order');
+        copyFolder( new Folder( this.params["source"] + '//Orders'),  new Folder( this.params["dest"] + '//Orders'));
         
         $.writeln("Remove Order folder")
-        removeFolder(this.params["source"] + '//Order')
+        removeFolder( new Folder( this.params["source"] + '//Orders'));
     }    
 }  
   
@@ -289,16 +289,24 @@ function removeFolder(deleteFolder){
   
 function copyFolder(sourceFolder, destinationFolder) {  
     var sourceChildrenArr = sourceFolder.getFiles();  
-    for (var i = 0; i < sourceChildrenArr.length; i++) {  
-        var sourceChild = sourceChildrenArr[i];  
-        var destinationChildStr = destinationFolder.fsName + "/" + sourceChild.name;  
-        if (sourceChild instanceof File) {  
-            copyFile(sourceChild, new File(destinationChildStr));  
-        }  
-        else {  
-            copyFolder(sourceChild, new Folder(destinationChildStr));  
-        }  
-    }  
+    if (sourceChildrenArr.length > 0)
+    {
+        for (var i = 0; i < sourceChildrenArr.length; i++) {  
+            var sourceChild = sourceChildrenArr[i];  
+            var destinationChildStr = destinationFolder.fsName + "/" + sourceChild.name;  
+            if (sourceChild instanceof File) {  
+                copyFile(sourceChild, new File(destinationChildStr));  
+            }  
+            else {  
+                copyFolder(sourceChild, new Folder(destinationChildStr));  
+            }  
+        } 
+    }
+    else
+    {
+        var destFolder = new Folder( destinationFolder );
+        if (!destFolder.exists) destFolder.create();   
+    }
 }  
   
   
