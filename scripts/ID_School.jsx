@@ -61,9 +61,9 @@ function Processor() {
         this.params['printfolder'] = printFolder.fsName;     
         
         //sims folder
-        var printFolder = new Folder( this.params["source"] + '//Sims'  );
-        if (!printFolder.exists) printFolder.create();    
-        this.params['simsfolder'] = printFolder.fsName;
+        var simsFolder = new Folder( this.params["source"] + '//Sims'  );
+        if (!simsFolder.exists) simsFolder.create();    
+        this.params['simsfolder'] = simsFolder.fsName;
     }
 
     this.processSchool = function(){
