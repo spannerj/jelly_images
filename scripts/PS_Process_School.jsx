@@ -957,19 +957,10 @@ function ImageProcessor() {
 //~ 		d.cbConvertICC.value = p["converticc"];
 		d.etQuality.text = p["q"];
          d.etImageCount.text = p["imagecount"];
-//~ 		d.cbMaximize.value = p["max"];
-//~ 		d.cbResizeJPEG.value = p["jpegresize"];
-//~ 		d.etResizeJPEGH.text = p["jpegh"];
-//~ 		d.etResizeJPEGW.text = p["jpegw"];
-//~ 		d.cbResizePSD.value = p["psdresize"];
-//~ 		d.etResizePSDH.text = p["psdh"];
-//~ 		d.etResizePSDW.text = p["psdw"];
-//~ 		d.cbResizeTIFF.value = p["tiffresize"];
-//~ 		d.etResizeTIFFH.text = p["tiffh"];
-//~ 		d.etResizeTIFFW.text = p["tiffw"];
-//~ 		d.cbAction.value = p["runaction"];
+
 		d.etCopyrightInfo.text = p["info"];
          d.etWatermark.text = p["watermark"];
+         d.ddTemplate.selection.text = p["template"];
 //~ 		d.cbIncludeICC.value = p["icc"];
 	}
 
@@ -997,39 +988,16 @@ function ImageProcessor() {
 		var d = this.dlgMain;
 		
 		if ( ! this.runningFromBridge ) {
-//~ 			p["useopen"] = d.rbUseOpen.value;
              p["source"] = d.sourceLongText;
-//~ 			p["includesub"] = d.cbIncludeSubFolders.value;
-//~ 			p["keepstructure"] = d.cbKeepStructure.value;
 		}
-
-//~ 		p["saveinsame"] = d.rbSaveInSame.value;
 		p["dest"] = d.destLongText;
-//~ 		p["open"] = d.cbOpenFirst.value;
 		p["jpeg"] = d.cbJPEG.value;
-//~ 		p["psd"] = d.cbPSD.value;
-//~ 		p["tiff"] = d.cbTIFF.value;
-//~ 		p["lzw"] = d.cbTIFFLZW.value;
-//~ 		p["converticc"] = d.cbConvertICC.value;
 		p["q"] = d.etQuality.text;
-         p["imagecount"] = d.etImageCount.text;
-		p["max"] = d.cbMaximize.value;
-//~ 		p["jpegresize"] = d.cbResizeJPEG.value;
-//~ 		p["jpegh"] = d.etResizeJPEGH.text;
-//~ 		p["jpegw"] = d.etResizeJPEGW.text;
-//~ 		p["psdresize"] = d.cbResizePSD.value;
-//~ 		p["psdh"] = d.etResizePSDH.text;
-//~ 		p["psdw"] = d.etResizePSDW.text;
-//~ 		p["tiffresize"] = d.cbResizeTIFF.value;
-//~ 		p["tiffh"] = d.etResizeTIFFH.text;
-//~ 		p["tiffw"] = d.etResizeTIFFW.text;
-//~ 		p["runaction"] = d.cbAction.value;
-//~ 		p["actionset"] = d.ddSet.selection.text;
-//~ 		p["action"] = d.ddAction.selection.text;
-		p["info"] = d.etCopyrightInfo.text;
+         p["info"] = d.etCopyrightInfo.text;
          p["watermark"] = d.etWatermark.text;
-//~ 		p["icc"] = d.cbIncludeICC.value;
          p["template"] = d.ddTemplate.selection.text;
+         p["imagecount"] = d.etImageCount.text;
+//~ 		p["max"] = d.cbMaximize.value;
 	}
 	
 	// routine for running the dialog and it's interactions
