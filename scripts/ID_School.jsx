@@ -19,7 +19,7 @@ function process(){
     var gP = new Processor();
     var strTitle = "Process School";
 
-    $.writeln("Inside Indesign")
+    $.writeln("Read XML file")
     //read in parameters from xml file
     g_script_XMLFunctions.ReadXMLFile(gP.params, strTitle);
     
@@ -32,6 +32,10 @@ function process(){
     $.writeln("Calling process school")
     //process classes in school
     gP.processSchool();
+    
+     $.writeln("Move files to Dropbox")
+//~     All processing done so now move Edit, Internet and Order folders to Dropbox
+    gP.moveToDropbox();
     
     alert('Finished!');
 }
@@ -52,9 +56,14 @@ function Processor() {
         this.params['internetfolder'] = internetFolder.fsName;
         
         //print folder
-        var printFolder = new Folder( this.params["source"] + '//Print'  );
+        var printFolder = new Folder( this.params["source"] + '//Orders'  );
         if (!printFolder.exists) printFolder.create();    
-        this.params['printfolder'] = printFolder.fsName;
+        this.params['printfolder'] = printFolder.fsName;     
+        
+        //sims folder
+        var simsFolder = new Folder( this.params["source"] + '//Sims'  );
+        if (!simsFolder.exists) simsFolder.create();    
+        this.params['simsfolder'] = simsFolder.fsName;
     }
 
     this.processSchool = function(){
@@ -76,6 +85,10 @@ function Processor() {
                   
                   //look for pupil folders inside class
                   var classFolder = new Folder(classArray[i]);
+                  
+                  //create class folder inside the sims folder                  
+                  var simsClassFolder = new Folder( this.params["simsfolder"] + '//' + classFolder.name );
+                  if (!simsClassFolder.exists) simsClassFolder.create();
                   
                   //get all pupils in the class
                   var pupilArray = classFolder.getFiles(onlyFolders);    
@@ -156,16 +169,26 @@ function Processor() {
          for (j=0; j<this.params['imagecount']; j+=1)
          {            
             var f = new File(filesArray[j]);  
+            
+            // Convert the file object to a string for matching purposes (match only works on String objects)  
+            var fileString = String(f); 
+            
+            //copy the first image to the class folder inside the sims folder. nb. first image ends with -1 or -01 followed by the file extension
+            if ( fileString.match(/-(0?)1.(jpg)$/i) || fileString.match(/-(0?)1.(CR2)$/i) ) 
+            {
+                f.copy(new Folder(this.params['simsfolder'] + "\\" + this.params['classname'] + "\\" +f.displayName));
+            }       
+            
             doc.pages[0].rectangles[j].place(f, false);  
             doc.pages[0].rectangles[j].images[0].select();
             sel = doc.selection[0];
             var h = sel.geometricBounds[2] - sel.geometricBounds[0];
             var w = sel.geometricBounds[3] - sel.geometricBounds[1] ;
             doc.pages[0].rectangles[j].images[0].fit(FitOptions.PROPORTIONALLY); 
-//~             if (w > h)
-//~             {
-//~                     sel.rotationAngle = 90;
-//~             }
+            if (w > h)
+            {
+                    sel.rotationAngle = 90;
+            }
              doc.pages[0].rectangles[j].images[0].fit(FitOptions.PROPORTIONALLY); 
 
             //move files into a  class folder in internet  with a _TIF_PEFN suffix
@@ -224,7 +247,81 @@ function Processor() {
             f.remove();
         }
     }
+
+    this.moveToDropbox = function(){
+ 
+        $.writeln("Move Internet folder to Dropbox")
+        copyFolder(new Folder(this.params["source"] + '//Internet'),   new Folder( this.params["dest"] + '\\Internet'));
+        
+        $.writeln("Remove Internet folder")
+        removeFolder(new Folder(this.params["source"] + '//Internet')) ;
+        
+        $.writeln("Move Edited folder to Dropbox")
+        copyFolder( new Folder( this.params["source"] + '//Edited'),  new Folder( this.params["dest"] + '//Edited'));
+        
+        $.writeln("Remove Edited folder")
+        removeFolder( new Folder( this.params["source"] + '//Edited')) ;
+        
+        $.writeln("Move Order folder to Dropbox")
+        copyFolder( new Folder( this.params["source"] + '//Orders'),  new Folder( this.params["dest"] + '//Orders'));
+        
+        $.writeln("Remove Order folder")
+        removeFolder( new Folder( this.params["source"] + '//Orders'));
+    }    
+}  
+  
+  
+function removeFolder(deleteFolder){
+    var deleteChildrenArr = deleteFolder.getFiles();
+    for (var i = 0; i < deleteChildrenArr.length; i++) {
+        var deleteChild = deleteChildrenArr[i]; 
+        if (deleteChild instanceof File) {  
+            deleteChild.remove();  
+        }  
+        else {  
+            removeFolder(deleteChild);  
+            deleteChild.remove();
+        } 
+    }
+    deleteFolder.remove();
 }
+
+  
+function copyFolder(sourceFolder, destinationFolder) {  
+    var sourceChildrenArr = sourceFolder.getFiles();  
+    if (sourceChildrenArr.length > 0)
+    {
+        for (var i = 0; i < sourceChildrenArr.length; i++) {  
+            var sourceChild = sourceChildrenArr[i];  
+            var destinationChildStr = destinationFolder.fsName + "/" + sourceChild.name;  
+            if (sourceChild instanceof File) {  
+                copyFile(sourceChild, new File(destinationChildStr));  
+            }  
+            else {  
+                copyFolder(sourceChild, new Folder(destinationChildStr));  
+            }  
+        } 
+    }
+    else
+    {
+        var destFolder = new Folder( destinationFolder );
+        if (!destFolder.exists) destFolder.create();   
+    }
+}  
+  
+  
+function copyFile(sourceFile, destinationFile) {  
+    createFolder(destinationFile.parent);  
+    sourceFile.copy(destinationFile);  
+}  
+  
+  
+function createFolder(folder) {  
+    if (folder.parent !== null && !folder.parent.exists) {  
+        createFolder(folder.parent);  
+    }  
+    folder.create();  
+} 
 
  function writeToFile(text, logPath) {
     path = logPath + "_TIF_PEFN" + "\\" + "paswords.txt" 

@@ -11,6 +11,10 @@ function folder_check(schoolPath, imageCount){
 
     var editedFolder = new Folder(schoolPath + '\\Edited');
     
+     if ( !editedFolder.exists ){
+      errorArray.push("No Edited folder found");
+    }
+    
     //exit if no folder set
     if (editedFolder == null)
     {
@@ -56,21 +60,36 @@ function folder_check(schoolPath, imageCount){
                         {
                             errorArray.push(folderName + " - incorrect number of files in jpg folder");
                         }    
+                    
                         //jpg folder found so now count the jpgs
                         if ( checkFolderCount(picFolder, imageCount) )
                         {
                             errorArray.push(folderName + " - incorrect number of files in edited folder");
                         }  
+                    
+                        //sims file check - loop through jpg  folder looking for a file with *-1.jpg/*-01.jpg
+                        if ( !checkSimsFileExists(jpgFolder) )
+                        {
+                            errorArray.push(folderName + " - missing a suitable sims file");
+                        }  
                     }
                 } //end if instance of pupil folder
+                else
+                {
+                    errorArray.push(pupilArray[i] + " - incorrectly found in pupil folder");
+                }  
             } //loop pupil array
         } //end if instance of class folder
+        else //not a folder
+        {
+            errorArray.push(classArray[i] + " - incorrectly found in class folder");
+        }   
     } //end for
 
     //if errors have been found show message
     if (errorArray.length > 0)
     {
-        var msg = 'The folowing folders did not process due to missing JPEG folder or incorrect number of files: \n';
+        var msg = 'The folowing folders did not process due to missing JPEG folder, incorrect number of files or missing sims files: \n';
         for (var i = 0; i < errorArray.length; i++) 
         {
             //store file name in message ready for alert and remove all spaces
@@ -88,6 +107,35 @@ function folder_check(schoolPath, imageCount){
         return false
     }
 };
+
+function checkSimsFileExists(schoolPath){          
+    // Create new folder object based on path string  
+    var folder = new Folder(schoolPath);  
+    var filesArray = new Array();
+
+    // Get all files in the current folder  
+    var files = folder.getFiles();  
+
+    // Loop over the files in the files object  
+    for (var i = 0; i < files.length; i++)  
+    {  
+        // Check if the file is an instance of a file   
+        if (files[i] instanceof File)  
+        {   
+            // Convert the file object to a string for matching purposes (match only works on String objects)  
+            var fileString = String(files[i]);  
+
+            if ( fileString.match(/-(0?)1.(jpg)$/i) || fileString.match(/-(0?)1.(CR2)$/i) ) 
+            {
+                //sims file found
+                return true
+            }
+        }      
+    } //end for
+
+    //missing sims file
+    return false
+} //end function
 
 function checkFolderCount(schoolPath, imageCount){          
     // Create new folder object based on path string  
