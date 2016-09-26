@@ -11,6 +11,10 @@ function folder_check(schoolPath, imageCount){
 
     var editedFolder = new Folder(schoolPath + '\\Edited');
     
+     if ( !editedFolder.exists ){
+      errorArray.push("No Edited folder found");
+    }
+    
     //exit if no folder set
     if (editedFolder == null)
     {
@@ -70,8 +74,16 @@ function folder_check(schoolPath, imageCount){
                         }  
                     }
                 } //end if instance of pupil folder
+                else
+                {
+                    errorArray.push(pupilArray[i] + " - incorrectly found in pupil folder");
+                }  
             } //loop pupil array
         } //end if instance of class folder
+        else //not a folder
+        {
+            errorArray.push(classArray[i] + " - incorrectly found in class folder");
+        }   
     } //end for
 
     //if errors have been found show message

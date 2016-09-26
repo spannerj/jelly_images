@@ -7,7 +7,7 @@ g_ProcessSchool = {
 };
 
 //~ //Uncomment if you want to run file outside of photoshop
-//~ main();
+main();
 
 function main(){
     $.evalFile(new File("c:/Adobe/scripts/readXML.jsx"));

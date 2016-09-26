@@ -11,7 +11,11 @@ g_FolderCheckWithoutJPEG = {
 function folder_check(schoolPath, imageCount){
 
     var editedFolder = new Folder(schoolPath + '\\Edited');
-    
+
+     if ( !editedFolder.exists ){
+      errorArray.push("No Edited folder found");
+    }
+
     //exit if no folder set
     if (editedFolder == null)
     {
@@ -23,7 +27,8 @@ function folder_check(schoolPath, imageCount){
     f.remove();
     
     //get folders under selected folder
-    var classArray = editedFolder.getFiles(onlyFolders); 
+//~     var classArray = editedFolder.getFiles(onlyFolders); 
+    var classArray = editedFolder.getFiles(); 
     
     //loop over each folder checking for presence of JPG folder with 6 images inside
     for (var i = 0; i < classArray.length; i++)  
@@ -32,7 +37,8 @@ function folder_check(schoolPath, imageCount){
         if (classArray[i] instanceof Folder)  
         {  
             //loop through class folder getting each pupil
-            var pupilArray = classArray[i].getFiles(onlyFolders);
+//~             var pupilArray = classArray[i].getFiles(onlyFolders);
+            var pupilArray = classArray[i].getFiles();
            
             //loop over each folder checking for presence of JPG folder with 6 images inside
             for (var j = 0; j < pupilArray.length; j++)  
@@ -56,8 +62,16 @@ function folder_check(schoolPath, imageCount){
                         errorArray.push(folderName + " - missing a suitable sims file");
                     }  
                 } //end if instance of pupil folder
+                else
+                {
+                    errorArray.push(pupilArray[i] + " - incorrectly found in pupil folder");
+                }    
             } //loop pupil array
         } //end if instance of class folder
+        else //not a folder
+        {
+            errorArray.push(classArray[i] + " - incorrectly found in class folder");
+        }    
     } //end for
 
     //if errors have been found show message
@@ -158,8 +172,8 @@ function onlyFolders(f) {
 
 //write text to a file at a specified location, create file if it doesn't already exist
 function writeToErrorFile(text, logPath) {
-    path = logPath + "\\" + "errors.txt" 
-	file = new File(path);
+    errorpath = logPath + "\\" + "errors.txt" 
+	file = new File(errorpath);
 	file.encoding = "UTF-8";
 	if (file.exists) {
 		file.open("e");
