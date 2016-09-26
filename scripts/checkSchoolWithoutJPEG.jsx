@@ -27,7 +27,6 @@ function folder_check(schoolPath, imageCount){
     f.remove();
     
     //get folders under selected folder
-//~     var classArray = editedFolder.getFiles(onlyFolders); 
     var classArray = editedFolder.getFiles(); 
     
     //loop over each folder checking for presence of JPG folder with 6 images inside
@@ -37,7 +36,6 @@ function folder_check(schoolPath, imageCount){
         if (classArray[i] instanceof Folder)  
         {  
             //loop through class folder getting each pupil
-//~             var pupilArray = classArray[i].getFiles(onlyFolders);
             var pupilArray = classArray[i].getFiles();
            
             //loop over each folder checking for presence of JPG folder with 6 images inside

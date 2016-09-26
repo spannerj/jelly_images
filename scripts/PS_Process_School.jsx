@@ -7,7 +7,7 @@ g_ProcessSchool = {
 };
 
 //~ //Uncomment if you want to run file outside of photoshop
-main();
+//~ main();
 
 function main(){
     $.evalFile(new File("c:/Adobe/scripts/readXML.jsx"));
@@ -79,11 +79,6 @@ function main(){
     gScriptResult; 
 }
 
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
-
 ///////////////////////////////////////////////////////////////////////////////
 // Function: CallIndesign
 // Usage: Call Indesign processing script
@@ -129,7 +124,6 @@ function GlobalVariables() {
 	// ok and cancel button
 	gRunButtonID = 1;
 	gCancelButtonID = 2;
-//~ 	gMaxResizeTIFF = 300000;
 	gMaxResize = 30000;
 
 	// A list of file extensions and types PS can read
@@ -167,9 +161,7 @@ function GlobalVariables() {
 	strNoFolderSelected = localize( "$$$/JavaScripts/ImageProcessor/NoFolderSelected=No folder has been selected" );
 	strLabelSourceHelp = localize( "$$$/JavaScripts/ImageProcessor/SourceHelp=Location of files to process" );
 	strLabelDestination = localize( "$$$/JavaScripts/ImageProcessor/Destination=Select location to save processed images" );
-//~ 	strSaveInSameLocation = localize( "$$$/JavaScripts/ImageProcessor/SaveInSameLocation=S&ave in Same Location" );
-//~ 	strSaveInSameLocationHelp = localize( "$$$/JavaScripts/ImageProcessor/SaveInSameLocationHelp=Save the new documents next to the original documents" );
-	strUseOpen = localize( "$$$/JavaScripts/ImageProcessor/UseOpen=Use Open &Images" );
+     strUseOpen = localize( "$$$/JavaScripts/ImageProcessor/UseOpen=Use Open &Images" );
 	strUseOpenHelp = localize( "$$$/JavaScripts/ImageProcessor/UseOpenHelp=Use the images that are currently open" );
 	strButtonBrowse1 = localize( "$$$/JavaScripts/ImageProcessor/Browse1=Select &Folder..." );
 	strButtonBrowse2 = localize( "$$$/JavaScripts/ImageProcessor/Browse2=Sele&ct Folder..." );
@@ -179,13 +171,7 @@ function GlobalVariables() {
 	strBridge = localize( "$$$/JavaScripts/ImageProcessor/Bridge=Process files from Bridge only" );
 	strBridgeHelp = localize( "$$$/JavaScripts/ImageProcessor/BridgeHelp=Selected files from Bridge will be processed" );
 	strButtonCancel = localize("$$$/JavaScripts/ImageProcessor/Cancel=Cancel");
-//~ 	strButtonLoad = localize("$$$/JavaScripts/ImageProcessor/Load=&Load...");
-//~ 	strButtonLoadHelp = localize("$$$/JavaScripts/ImageProcessor/LoadHelp=Load a settings file from disk");
-//~ 	strButtonSave = localize("$$$/JavaScripts/ImageProcessor/Save=&Save...");
-//~ 	strButtonSaveHelp = localize("$$$/JavaScripts/ImageProcessor/SaveHelp=Save the current dialog settings to disk");
-//~ 	strICC = localize( "$$$/JavaScripts/ImageProcessor/ICC=Inclu&de ICC Profile" );
-//~ 	strICCHelp = localize( "$$$/JavaScripts/ImageProcessor/ICCHelp=Include the ICC Profile when saving the file" );
-	strFileType = localize( "$$$/JavaScripts/ImageProcessor/FileType=File Type" );
+     strFileType = localize( "$$$/JavaScripts/ImageProcessor/FileType=File Type" );
 	strPreferences = localize( "$$$/JavaScripts/ImageProcessor/Preferences=Preferences" );
 	strRunAction = localize( "$$$/JavaScripts/ImageProcessor/RunAction=R&un Action:" );
 	strActionHelp = localize( "$$$/JavaScript/ImageProcessor/ActionHelp=Select an action set and an action" );
@@ -193,19 +179,13 @@ function GlobalVariables() {
 	strSaveAsJPEGHelp = localize( "$$$/JavaScripts/ImageProcessor/SaveAsJPEGHelp=Save a file to the JPEG format" );
 	strQuality = localize( "$$$/JavaScripts/ImageProcessor/Quality=Quality:" );
     strImageCount = localize( "$$$/JavaScripts/ImageProcessor/ImageCount=ImageCount:" );
-//~ 	strConvertICC = localize( "$$$/JavaScripts/ImageProcessor/Convert=Con&vert Profile to sRGB" );
-//~ 	strConvertICCHelp = localize( "$$$/JavaScripts/ImageProcessor/ConvertHelp=Convert the ICC profile to sRGB before saving" );
-	strResizeToFit1 = localize( "$$$/JavaScripts/ImageProcessor/ResizeToFit1=&Resize to Fit" );
+    strResizeToFit1 = localize( "$$$/JavaScripts/ImageProcessor/ResizeToFit1=&Resize to Fit" );
 	strResizeToFit2 = localize( "$$$/JavaScripts/ImageProcessor/ResizeToFit2=R&esize to Fit" );
 	strResizeToFit3 = localize( "$$$/JavaScripts/ImageProcessor/ResizeToFit3=Resi&ze to Fit" );
 	strResizeToFitHelp = localize( "$$$/JavaScripts/ImageProcessor/ResizeToFitHelp=Select to resize for this format" );
-//~ 	strSaveAsPSD = localize( "$$$/JavaScripts/ImageProcessor/SaveAsPSD=Save as &PSD" );
-//~ 	strSaveAsPSDHelp = localize( "$$$/JavaScripts/ImageProcessor/SaveAsPSDHelp=Save a file to the PSD format" );
-	strMaximize = localize( "$$$/JavaScripts/ImageProcessor/Maximize=&Maximize Compatibility" );
+     strMaximize = localize( "$$$/JavaScripts/ImageProcessor/Maximize=&Maximize Compatibility" );
 	strMaximizeHelp = localize( "$$$/JavaScripts/ImageProcessor/MaximizeHelp=Maximize compatibility when saving to PSD format" );
-//~ 	strSaveAsTIFF = localize( "$$$/JavaScripts/ImageProcessor/SaveAsTIFF=Save as &TIFF" );
-//~ 	strSaveAsTIFFHelp = localize( "$$$/JavaScripts/ImageProcessor/SaveAsTIFFHelp=Save a file to the TIFF format" );
-	strLZW = localize( "$$$/JavaScripts/ImageProcessor/LZW=LZ&W Compression" );
+     strLZW = localize( "$$$/JavaScripts/ImageProcessor/LZW=LZ&W Compression" );
 	strLZWHelp = localize( "$$$/JavaScripts/ImageProcessor/LZWHelp=Use LZW compression when saving in TIFF format" );
 	strCopyright = localize( "$$$/JavaScripts/ImageProcessor/Copyright=Delivered By:" );
 	strCopyrightHelp = localize( "$$$/JavaScripts/ImageProcessor/CopyrightHelp=Add copyright metadata to your images" );
@@ -237,17 +217,9 @@ function GlobalVariables() {
 	strFollowing = localize( "$$$/JavaScripts/ImageProcessor/Following=The following files will not be saved." );
 	strNoOpenableFiles = localize( "$$$/JavaScripts/ImageProcessor/NoOpenableFiles=There were no source files that could be opened by Photoshop." );
 	strCannotWriteToFolder = localize( "$$$/JavaScripts/ImageProcessor/CannotWriteToFolder=I am unable to create a file in this folder. Please check your access rights to this location " );
-//~ 	strKeepStructure = localize( "$$$/JavaScripts/ImageProcessor/KeepStructure=Keep folder structure" );
-//~ 	strIncludeAllSubfolders = localize( "$$$/JavaScripts/ImageProcessor/IncludeAll=Include All sub-folders" );
-//~ 	strIncludeAllSubfoldersHelp =  localize( "$$$/JavaScripts/ImageProcessor/IncludeAllHelp=Process all the folders within the source folder" );
-	strFileAlreadyExists =  localize( "$$$/JavaScripts/ImageProcessor/FileAlreadyExists=The file already exists. Do you want to replace?" );
-	
-	// some strings that need localized to define the preferred sizes of items for different languages
-	// strwAndhEtLength = localize( "$$$/locale_specific/JavaScripts/ImageProcessor/EditTextWandHLength=40" );
-	// strqEtLength = localize( "$$$/locale_specific/JavaScripts/ImageProcessor/QEditTextLength=30" );
-	strsourceAndDestLength = localize( "$$$/locale_specific/JavaScripts/ImageProcessor/SourceAndDestLength=210" );
+     strFileAlreadyExists =  localize( "$$$/JavaScripts/ImageProcessor/FileAlreadyExists=The file already exists. Do you want to replace?" );
+     strsourceAndDestLength = localize( "$$$/locale_specific/JavaScripts/ImageProcessor/SourceAndDestLength=210" );
 	stractionDropDownLength = localize( "$$$/locale_specific/JavaScripts/ImageProcessor/ActionDropDownLength=140" );
-
 }
 
 // given a file name and a list of extensions
@@ -372,11 +344,8 @@ function ImageProcessor() {
 		// and use auto layout
 
 		// some interesting numbers to help the auto layout, real numbers are in the zstrings
-		// var wAndhEtLength = StrToIntWithDefault( strwAndhEtLength, 40 );
-		// var qEtLength = StrToIntWithDefault( strqEtLength, 30 );
 		var sourceAndDestLength = StrToIntWithDefault( strsourceAndDestLength, 210 );
-		var actionDropDownLength = StrToIntWithDefault( stractionDropDownLength, 140 );
-		
+		var actionDropDownLength = StrToIntWithDefault( stractionDropDownLength, 140 );		
 		var squeezePlay = 5;
 		
 		d.marginLeft = 15;
@@ -432,18 +401,9 @@ function ImageProcessor() {
 			l.grpOpenOptions.orientation = 'row';
 			l.grpOpenOptions.alignChildren = 'center';
 
-//~ 			d.rbUseOpen = l.grpOpenOptions.add( 'radiobutton', undefined, strUseOpen );
-//~ 			d.rbUseOpen.helpTip = strUseOpenHelp;
-			
-//~ 			d.cbIncludeSubFolders = l.grpOpenOptions.add( 'checkbox', undefined, strIncludeAllSubfolders );
-//~ 	         d.cbIncludeSubFolders.helpTip = strIncludeAllSubfoldersHelp;
-
 			l.grpSelect = l.grp1Info.grpRight.add( 'group' );
 			l.grpSelect.orientation = 'row';
 			l.grpSelect.alignChildren = 'center';
-
-//~ 			d.rbUseFolder = l.grpSelect.add( 'radiobutton', undefined, '' );
-//~ 			d.rbUseFolder.helpTip = strUseOpenHelp;
 			
 			d.btnSource = l.grpSelect.add( 'button', undefined, strButtonBrowse1 );
 			d.btnSource.helpTip = strLabelSource;
@@ -452,9 +412,6 @@ function ImageProcessor() {
 			d.stSource.helpTip = strLabelSourceHelp;
 			d.stSource.preferredSize.width = sourceAndDestLength;
 		}
-
-//~ 		d.cbOpenFirst = l.grp1Info.grpRight.add( 'checkbox', undefined, strOpenFirst );
-//~ 		d.cbOpenFirst.helpTip = strOpenFirstHelp;
 
 		d.line1 = l.add( 'panel', undefined, undefined, {borderStyle: 'sunken'} );
 		
@@ -491,21 +448,9 @@ function ImageProcessor() {
 		l.grpSaveOptions.orientation = 'row';
 		l.grpSaveOptions.alignChildren = 'center';
 
-//~ 		d.rbSaveInSame = l.grpSaveOptions.add( 'radiobutton', undefined, strSaveInSameLocation );
-//~ 		d.rbSaveInSame.helpTip = strSaveInSameLocationHelp;
-
-//~ 		if ( ! this.runningFromBridge ) {
-//~ 			
-//~ 			d.cbKeepStructure = l.grpSaveOptions.add( 'checkbox', undefined, strKeepStructure );
-//~ 			d.cbKeepStructure.helpTip = strKeepStructure;
-//~ 		}
-	
 		l.grpDestBrowse = l.grp2Info.grpRight.add( 'group' );
 		l.grpDestBrowse.orientation = 'row';
 		l.grpDestBrowse.alignChildren = 'center';
-
-//~ 		d.rbSaveInNew = l.grpDestBrowse.add( 'radiobutton', undefined, '' );
-//~ 		d.rbSaveInNew.helpTip = strLabelDestination;
 
 		d.btnDest = l.grpDestBrowse.add( 'button', undefined, strButtonBrowse2 );
 		d.btnDest.helpTip = strLabelDestination;
@@ -578,59 +523,8 @@ function ImageProcessor() {
 
 		d.stQuality = p.grpJPEG.grpLeft.grpQ.add( 'statictext', undefined, strQuality );
 		d.etQuality = p.grpJPEG.grpLeft.grpQ.add( 'edittext' );
-		// d.etQuality.preferredSize.width = qEtLength;
 		d.etQuality.characters = 3;
 		d.etQuality.graphics.disabledBackgroundColor = brush;
-		
-//~ 		p.grpJPEG.grpLeft.grpJPEG.grpICC = p.grpJPEG.grpLeft.grpJPEG.add( 'group' );
-//~ 		p.grpJPEG.grpLeft.grpJPEG.grpICC.orientation = 'row';
-//~ 		p.grpJPEG.grpLeft.grpJPEG.grpICC.alignChildren = 'center';
-		
-//~ 		d.cbConvertICC = p.grpJPEG.grpLeft.grpJPEG.grpICC.add( 'checkbox', undefined, strConvertICC );
-//~ 		d.cbConvertICC.helpTip = strConvertICCHelp;
-		
-//~ 		d.hidden1 = p.grpJPEG.grpLeft.grpJPEG.grpICC.add( 'edittext' );
-//~ 		d.hidden1.preferredSize.width = 1;
-//~ 		d.hidden1.visible = showHidden;
-
-//~ 		p.grpJPEG.grpRight = p.grpJPEG.add( 'group' );
-//~ 		p.grpJPEG.grpRight.orientation = 'column';
-//~ 		p.grpJPEG.grpRight.alignChildren = 'left';
-		
-//~ 		d.cbResizeJPEG = p.grpJPEG.grpRight.add( 'checkbox', undefined, strResizeToFit1 );
-//~ 		d.cbResizeJPEG.helpTip = strResizeToFitHelp;
-
-//~ 		p.grpJPEG.grpRight.grpW = p.grpJPEG.grpRight.add( 'group' );
-//~ 		p.grpJPEG.grpRight.grpW.orientation = 'row';
-//~ 		p.grpJPEG.grpRight.grpW.alignChildren = 'center';
-//~ 		p.grpJPEG.grpRight.grpW.spacing = 1;
-//~ 		p.grpJPEG.grpRight.grpW.margins = [d.marginLeft, 0, 0, 0];
-
-//~ 		d.stResizeJPEGW = p.grpJPEG.grpRight.grpW.add( 'statictext', undefined, strW );
-//~ 		d.stResizeJPEGW.helpTip = strWHelp;
-//~ 		d.stResizeJPEGW.justify = 'right';
-//~ 		d.etResizeJPEGW = p.grpJPEG.grpRight.grpW.add( 'edittext' );
-//~ 		d.etResizeJPEGW.helpTip = strWHelp;
-//~ 		// d.etResizeJPEGW.preferredSize.width = wAndhEtLength;
-//~ 		d.etResizeJPEGW.characters = 4;
-//~ 		d.etResizeJPEGW.graphics.disabledBackgroundColor = brush;
-//~ 		d.stResizeJPEGPXW = p.grpJPEG.grpRight.grpW.add( 'statictext', undefined, strPX );
-
-//~ 		p.grpJPEG.grpRight.grpH = p.grpJPEG.grpRight.add( 'group' );
-//~ 		p.grpJPEG.grpRight.grpH.orientation = 'row';
-//~ 		p.grpJPEG.grpRight.grpH.alignChildren = 'center';
-//~ 		p.grpJPEG.grpRight.grpH.spacing = 1;
-//~ 		p.grpJPEG.grpRight.grpH.margins = [d.marginLeft, 0, 0, 0];
-
-//~ 		d.stResizeJPEGH = p.grpJPEG.grpRight.grpH.add( 'statictext', undefined, strH );
-//~ 		d.stResizeJPEGH.helpTip = strHHelp;
-//~ 		d.stResizeJPEGH.justify = 'right';
-//~ 		d.etResizeJPEGH = p.grpJPEG.grpRight.grpH.add( 'edittext' );
-//~ 		d.etResizeJPEGH.helpTip = strHHelp;
-//~ 		// d.etResizeJPEGH.preferredSize.width = wAndhEtLength;
-//~ 		d.etResizeJPEGH.characters = 4;
-//~ 		d.etResizeJPEGH.graphics.disabledBackgroundColor = brush;
-//~ 		d.stResizeJPEGPXH = p.grpJPEG.grpRight.grpH.add( 'statictext', undefined, strPX );
 
 		p.grpJPEG.grpLeft.grpJPEG.grpImageCount = p.grpJPEG.grpLeft.grpJPEG.add( 'group' );
 		p.grpJPEG.grpLeft.grpJPEG.grpImageCount.orientation = 'row';
@@ -640,144 +534,6 @@ function ImageProcessor() {
 		d.etImageCount = p.grpJPEG.grpLeft.grpJPEG.grpImageCount.add( 'edittext' );
 		d.etImageCount.characters = 3;
 		d.etImageCount.graphics.disabledBackgroundColor = brush;
-
-//~ 		p.line1 = p.add( 'panel', undefined, undefined, {borderStyle: 'sunken'} );
-//~ 		p.line1.alignment = 'fill';
-		
-//~ 		p.grpPSD = p.add( 'group' );
-//~ 		p.grpPSD.orientation = 'row';
-//~ 		p.grpPSD.alignChildren = 'fill';
-
-//~ 		p.grpPSD.grpLeft = p.grpPSD.add( 'group' );
-//~ 		p.grpPSD.grpLeft.orientation = 'column';
-//~ 		p.grpPSD.grpLeft.alignChildren = 'fill';
-
-//~ 		d.cbPSD = p.grpPSD.grpLeft.add( 'checkbox', undefined, strSaveAsPSD );
-//~ 		d.cbPSD.helpTip = strSaveAsPSDHelp;
-//~ 		
-//~ 		p.grpPSD.grpLeft.grpPSD = p.grpPSD.grpLeft.add( 'group' );
-//~ 		p.grpPSD.grpLeft.grpPSD.orientation = 'column';
-//~ 		p.grpPSD.grpLeft.grpPSD.alignChildren = 'left';
-//~ 		p.grpPSD.grpLeft.grpPSD.margins = [d.marginLeft, 0, 0, 0];
-
-//~ 		p.grpPSD.grpLeft.grpPSD.grpMax = p.grpPSD.grpLeft.grpPSD.add( 'group' );
-//~ 		p.grpPSD.grpLeft.grpPSD.grpMax.orientation = 'row';
-//~ 		p.grpPSD.grpLeft.grpPSD.grpMax.alignChildren = 'center';
-
-//~ 		d.cbMaximize = p.grpPSD.grpLeft.grpPSD.grpMax.add( 'checkbox', undefined, strMaximize );
-//~ 		d.cbMaximize.helpTip = strMaximizeHelp;
-//~ 		
-//~ 		d.hidden2 = p.grpPSD.grpLeft.grpPSD.grpMax.add( 'edittext' );
-//~ 		d.hidden2.preferredSize.width = 1;
-//~ 		d.hidden2.visible = showHidden;
-
-//~ 		p.grpPSD.grpRight = p.grpPSD.add( 'group' );
-//~ 		p.grpPSD.grpRight.orientation = 'column';
-//~ 		p.grpPSD.grpRight.alignChildren = 'left';
-
-//~ 		d.cbResizePSD = p.grpPSD.grpRight.add( 'checkbox', undefined, strResizeToFit2 );
-//~ 		d.cbResizePSD.helpTip = strResizeToFitHelp;
-//~ 		
-//~ 		p.grpPSD.grpRight.grpW = p.grpPSD.grpRight.add( 'group' );
-//~ 		p.grpPSD.grpRight.grpW.orientation = 'row';
-//~ 		p.grpPSD.grpRight.grpW.alignChildren = 'center';
-//~ 		p.grpPSD.grpRight.grpW.spacing = 1;
-//~ 		p.grpPSD.grpRight.grpW.margins = [d.marginLeft, 0, 0, 0];
-
-//~ 		d.stResizePSDW = p.grpPSD.grpRight.grpW.add( 'statictext', undefined, strW );
-//~ 		d.stResizePSDW.helpTip = strWHelp;
-//~ 		d.stResizePSDW.justify = 'right';
-//~ 		d.etResizePSDW = p.grpPSD.grpRight.grpW.add( 'edittext' );
-//~ 		d.etResizePSDW.helpTip = strWHelp;
-//~ 		// d.etResizePSDW.preferredSize.width = wAndhEtLength;
-//~ 		d.etResizePSDW.characters = 4;
-//~ 		d.etResizePSDW.graphics.disabledBackgroundColor = brush;
-//~ 		d.stResizePSDPXW = p.grpPSD.grpRight.grpW.add( 'statictext', undefined, strPX );
-//~ 		
-//~ 		p.grpPSD.grpRight.grpH = p.grpPSD.grpRight.add( 'group' );
-//~ 		p.grpPSD.grpRight.grpH.orientation = 'row';
-//~ 		p.grpPSD.grpRight.grpH.alignChildren = 'center';
-//~ 		p.grpPSD.grpRight.grpH.spacing = 1;
-//~ 		p.grpPSD.grpRight.grpH.margins = [d.marginLeft, 0, 0, 0];
-
-//~ 		d.stResizePSDH = p.grpPSD.grpRight.grpH.add( 'statictext', undefined, strH );
-//~ 		d.stResizePSDH.helpTip = strHHelp;
-//~ 		d.stResizePSDH.justify = 'right';
-//~ 		d.etResizePSDH = p.grpPSD.grpRight.grpH.add( 'edittext' );
-//~ 		d.etResizePSDH.helpTip = strHHelp;
-//~ 		// d.etResizePSDH.preferredSize.width = wAndhEtLength;
-//~ 		d.etResizePSDH.characters = 4;
-//~ 		d.etResizePSDH.graphics.disabledBackgroundColor = brush;
-//~ 		d.stResizePSDPXH = p.grpPSD.grpRight.grpH.add( 'statictext', undefined, strPX );
-		
-//~ 		p.line2 = p.add( 'panel', undefined, undefined, {borderStyle: 'sunken'} );
-//~ 		p.line2.alignment = 'fill';
-		
-//~ 		p.grpTIFF = p.add( 'group' );
-//~ 		p.grpTIFF.orientation = 'row';
-//~ 		p.grpTIFF.alignChildren = 'fill';
-
-//~ 		p.grpTIFF.grpLeft = p.grpTIFF.add( 'group' );
-//~ 		p.grpTIFF.grpLeft.orientation = 'column';
-//~ 		p.grpTIFF.grpLeft.alignChildren = 'fill';
-
-//~ 		d.cbTIFF = p.grpTIFF.grpLeft.add( 'checkbox', undefined, strSaveAsTIFF );
-//~ 		d.cbTIFF.helpTip = strSaveAsTIFFHelp
-//~ 		
-//~ 		p.grpTIFF.grpLeft.grpTIFF = p.grpTIFF.grpLeft.add( 'group' );
-//~ 		p.grpTIFF.grpLeft.grpTIFF.orientation = 'column';
-//~ 		p.grpTIFF.grpLeft.grpTIFF.alignChildren = 'left';
-//~ 		p.grpTIFF.grpLeft.grpTIFF.margins = [d.marginLeft, 0, 0, 0];
-
-//~ 		p.grpTIFF.grpLeft.grpTIFF.grpLZW = p.grpTIFF.grpLeft.grpTIFF.add( 'group' );
-//~ 		p.grpTIFF.grpLeft.grpTIFF.grpLZW.orientation = 'row';
-//~ 		p.grpTIFF.grpLeft.grpTIFF.grpLZW.alignChildren = 'center';
-
-//~ 		d.cbTIFFLZW = p.grpTIFF.grpLeft.grpTIFF.grpLZW.add( 'checkbox', undefined, strLZW );
-//~ 		d.cbTIFFLZW.helpTip = strLZWHelp;
-//~ 		
-//~ 		d.hidden3 = p.grpTIFF.grpLeft.grpTIFF.grpLZW.add( 'edittext' );
-//~ 		d.hidden3.preferredSize.width = 1;
-//~ 		d.hidden3.visible = showHidden;
-
-//~ 		p.grpTIFF.grpRight = p.grpTIFF.add( 'group' );
-//~ 		p.grpTIFF.grpRight.orientation = 'column';
-//~ 		p.grpTIFF.grpRight.alignChildren = 'left';
-
-//~ 		d.cbResizeTIFF = p.grpTIFF.grpRight.add( 'checkbox', undefined, strResizeToFit3 );
-//~ 		d.cbResizeTIFF.helpTip = strResizeToFitHelp;
-
-//~ 		p.grpTIFF.grpRight.grpW = p.grpTIFF.grpRight.add( 'group' );
-//~ 		p.grpTIFF.grpRight.grpW.orientation = 'row';
-//~ 		p.grpTIFF.grpRight.grpW.alignChildren = 'center';
-//~ 		p.grpTIFF.grpRight.grpW.spacing = 1;
-//~ 		p.grpTIFF.grpRight.grpW.margins = [d.marginLeft, 0, 0, 0];
-
-//~ 		d.stResizeTIFFW = p.grpTIFF.grpRight.grpW.add( 'statictext', undefined, strW );
-//~ 		d.stResizeTIFFW.helpTip = strWHelp;
-//~ 		d.stResizeTIFFW.justify = 'right';
-//~ 		d.etResizeTIFFW = p.grpTIFF.grpRight.grpW.add( 'edittext' );
-//~ 		d.etResizeTIFFW.helpTip = strWHelp;
-//~ 		// d.etResizeTIFFW.preferredSize.width = wAndhEtLength;
-//~ 		d.etResizeTIFFW.characters = 4;
-//~ 		d.etResizeTIFFW.graphics.disabledBackgroundColor = brush;
-//~ 		d.stResizeTIFFPXW = p.grpTIFF.grpRight.grpW.add( 'statictext', undefined, strPX );
-
-//~ 		p.grpTIFF.grpRight.grpH = p.grpTIFF.grpRight.add( 'group' );
-//~ 		p.grpTIFF.grpRight.grpH.orientation = 'row';
-//~ 		p.grpTIFF.grpRight.grpH.alignChildren = 'center';
-//~ 		p.grpTIFF.grpRight.grpH.spacing = 1;
-//~ 		p.grpTIFF.grpRight.grpH.margins = [d.marginLeft, 0, 0, 0];
-
-//~ 		d.stResizeTIFFH = p.grpTIFF.grpRight.grpH.add( 'statictext', undefined, strH );
-//~ 		d.stResizeTIFFH.helpTip = strHHelp;
-//~ 		d.stResizeTIFFH.justify = 'right';
-//~ 		d.etResizeTIFFH = p.grpTIFF.grpRight.grpH.add( 'edittext' );
-//~ 		d.etResizeTIFFH.helpTip = strHHelp;
-//~ 		// d.etResizeTIFFH.preferredSize.width = wAndhEtLength;
-//~ 		d.etResizeTIFFH.characters = 4;
-//~ 		d.etResizeTIFFH.graphics.disabledBackgroundColor = brush;
-//~ 		d.stResizeTIFFPXH = p.grpTIFF.grpRight.grpH.add( 'statictext', undefined, strPX );
 
 		d.line3 = l.add( 'panel', undefined, undefined, {borderStyle: 'sunken'} );
 		d.line3.alignment = 'fill';
@@ -815,30 +571,10 @@ function ImageProcessor() {
 		l.grpAction.orientation = 'row';
 		l.grpAction.alignChildren = 'center';
 
-//~ 		d.cbAction = l.grpAction.add( 'checkbox' );
-//~ 		d.cbAction.text = strRunAction;
-//~ 		d.cbAction.helpTip = strActionHelp;
-		
-//~ 		d.hidden4 = l.grpAction.add( 'dropdownlist' );
-//~ 		d.hidden4.preferredSize.width = 1;
-//~ 		d.hidden4.visible = showHidden;
-
 		l.grp4Info.grpRight = l.grp4Info.add( 'group' );
 		l.grp4Info.grpRight.orientation = 'column';
 		l.grp4Info.grpRight.alignChildren = 'left';
 		l.grp4Info.grpRight.spacing = 5;
-
-//~ 		l.grpDropDowns = l.grp4Info.grpRight.add( 'group' );
-//~ 		l.grpDropDowns.orientation = 'row';
-//~ 		l.grpDropDowns.alignChildren = 'center';
-
-//~ 		d.ddSet = l.grpDropDowns.add( 'dropdownlist' );
-//~ 		d.ddSet.helpTip = strActionHelp;
-//~ 		d.ddSet.preferredSize.width = actionDropDownLength;
-//~ 		
-//~ 		d.ddAction = l.grpDropDowns.add( 'dropdownlist' );
-//~ 		d.ddAction.helpTip = strActionHelp;
-//~ 		d.ddAction.preferredSize.width = actionDropDownLength;
 
 		l.grpCopyright = l.grp4Info.grpLeft.add( 'group' );
 		l.grpCopyright.orientation = 'row';
@@ -889,9 +625,6 @@ function ImageProcessor() {
 		d.ddTemplate.preferredSize.width = 250 //actionDropDownLength * 2;
         ////////////////////////////////////////////////////////////////////////////   
 
-//~ 		d.cbIncludeICC = l.grp4.grpRight.add( 'checkbox', undefined, strICC );
-//~ 		d.cbIncludeICC.helpTip = strICCHelp;
-
 		// buttons on the right side of the dialog
 		
 		d.grpRight = d.add( 'group' );
@@ -902,10 +635,6 @@ function ImageProcessor() {
 		d.btnRun = d.grpRight.add( 'button', undefined, strButtonRun );
 		d.btnCancel = d.grpRight.add( 'button', undefined, strButtonCancel );
 		d.stFake = d.grpRight.add( 'statictext', undefined, '' );
-//~ 		d.btnLoad = d.grpRight.add( 'button', undefined, strButtonLoad );
-//~ 		d.btnLoad.helpTip = strButtonLoadHelp;
-//~ 		d.btnSave = d.grpRight.add( 'button', undefined, strButtonSave );
-//~ 		d.btnSave.helpTip = strButtonSaveHelp;
 
 		d.defaultElement = d.btnRun;
 		d.cancelElement = d.btnCancel;
@@ -921,64 +650,28 @@ function ImageProcessor() {
 		d.loadFromDisk = true;
 		
 		if ( ! this.runningFromBridge ) {
-
-//~ 			if ( app.documents.length > 0 ) {
-//~ 				d.rbUseOpen.value = p["useopen"];
-//~ 			} else {
-//~ 				d.rbUseOpen.enabled = false;
-//~ 				d.rbUseOpen.value = false;
-//~ 			}
-			
-//~ 			d.cbIncludeSubFolders.value = p["includesub"];
-			
-//~ 			d.cbKeepStructure.value = p["keepstructure"];
-
-//~ 			d.rbUseFolder.value = ! d.rbUseOpen.value;
-
 			d.stSource.text = p["source"];
 			if ( d.stSource.text == "" ) {
 				d.stSource.text = strNoImagesSelected;
 			}
 		}
 		d.sourceLongText = p["source"];
-
-//~ 		d.rbSaveInSame.value = p["saveinsame"];
-//~ 		d.rbSaveInNew.value = ! d.rbSaveInSame.value;		
-//~ 		d.cbOpenFirst.value = p["open"];
 		d.stDest.text = p["dest"];
 		if ( d.stDest.text == "" ) {
 			d.stDest.text = strNoFolderSelected;
 		}
 		d.destLongText = p["dest"];
 		d.cbJPEG.value = p["jpeg"];
-//~ 		d.cbPSD.value = p["psd"];
-//~ 		d.cbTIFF.value = p["tiff"];
-//~ 		d.cbTIFFLZW.value = p["lzw"];
-//~ 		d.cbConvertICC.value = p["converticc"];
 		d.etQuality.text = p["q"];
          d.etImageCount.text = p["imagecount"];
-
 		d.etCopyrightInfo.text = p["info"];
          d.etWatermark.text = p["watermark"];
          d.ddTemplate.selection.text = p["template"];
-//~ 		d.cbIncludeICC.value = p["icc"];
 	}
 
 	// pretend like i clicked it to get the other items to respond to the current settings
 	this.ForceDialogUpdate = function() {	
-//~ 		if ( ! this.runningFromBridge ) {
-//~ 			this.dlgMain.rbUseOpen.onClick();
-//~ 		}
-//~ 		this.dlgMain.rbSaveInSame.onClick();
 		this.dlgMain.cbJPEG.onClick();
-//~ 		this.dlgMain.cbPSD.onClick();
-//~ 		this.dlgMain.cbTIFF.onClick();
-//~ 		index = this.dlgMain.SetDropDown( this.dlgMain.ddSet, this.params["actionset"] );
-//~ 		if ( this.actionInfo.length > 0 ) {
-//~ 			this.dlgMain.ddSet.onChange( index );
-//~ 			this.actionIndex = this.dlgMain.SetDropDown( this.dlgMain.ddAction, this.params["action"] );
-//~ 		}
-//~ 		this.dlgMain.cbAction.onClick();
 	}
 
 	// transfer from the dialog widgets to my internal params
@@ -997,7 +690,6 @@ function ImageProcessor() {
          p["watermark"] = d.etWatermark.text;
          p["template"] = d.ddTemplate.selection.text;
          p["imagecount"] = d.etImageCount.text;
-//~ 		p["max"] = d.cbMaximize.value;
 	}
 	
 	// routine for running the dialog and it's interactions
@@ -1010,8 +702,7 @@ function ImageProcessor() {
 
 		// help auto layout
 		this.dlgMain.onShow = function() {
-			
-//~ 			this.cbOpenFirst.location.x += this.marginLeft;
+
 			this.grpLeft.grp1Info.grpRight.bounds.right += this.marginLeft;
 			
 			var p = this.grpFileType;
@@ -1024,17 +715,6 @@ function ImageProcessor() {
 				this.stResizeJPEGH.location.x += mover;
 				this.etResizeJPEGH.location.x += mover;
 				this.stResizeJPEGPXH.location.x += mover;
-
-//~ 				p.grpPSD.grpRight.grpH.bounds.right += mover;
-//~ 				this.stResizePSDH.location.x += mover;
-//~ 				this.etResizePSDH.location.x += mover;
-//~ 				this.stResizePSDPXH.location.x += mover;
-
-//~ 				p.grpTIFF.grpRight.grpH.bounds.right += mover;
-//~ 				this.stResizeTIFFH.location.x += mover;
-//~ 				this.etResizeTIFFH.location.x += mover;
-//~ 				this.stResizeTIFFPXH.location.x += mover;
-
 			} else {
 				var mover = p.grpJPEG.grpRight.grpH.bounds.width - p.grpJPEG.grpRight.grpW.bounds.width;
 
@@ -1042,31 +722,12 @@ function ImageProcessor() {
 				this.stResizeJPEGW.location.x += mover;
 				this.etResizeJPEGW.location.x += mover;
 				this.stResizeJPEGPXW.location.x += mover;
-
-//~ 				p.grpPSD.grpRight.grpW.bounds.right += mover;
-//~ 				this.stResizePSDW.location.x += mover;
-//~ 				this.etResizePSDW.location.x += mover;
-//~ 				this.stResizePSDPXW.location.x += mover;
-
-//~ 				p.grpTIFF.grpRight.grpW.bounds.right += mover;
-//~ 				this.stResizeTIFFW.location.x += mover;
-//~ 				this.etResizeTIFFW.location.x += mover;
-//~ 				this.stResizeTIFFPXW.location.x += mover;
-
 			}
 			
 			// align the resize groups
 			var farRight = p.grpJPEG.grpRight.location.x;
-//~ 			if ( p.grpPSD.grpRight.location.x > farRight ) {
-//~ 				farRight = p.grpPSD.grpRight.location.x;
-//~ 			}
-//~ 			if ( p.grpTIFF.grpRight.location.x > farRight ) {
-//~ 				farRight = p.grpTIFF.grpRight.location.x;
-//~ 			}
 
 			p.grpJPEG.grpRight.location.x = farRight;
-//~ 			p.grpPSD.grpRight.location.x = farRight;
-//~ 			p.grpTIFF.grpRight.location.x = farRight;	
 
 			// make the copyright and action drop downs as large as possible
 			// and align them with the third line
@@ -1088,35 +749,9 @@ function ImageProcessor() {
 			// make sure the right edges line up by looking at the oddness
 			var halfMover = mover / 2;
 			var isOdd = halfMover % 2 ? true : false;
-
-//~ 			this.ddSet.bounds.width += halfMover;
-//~ 			this.ddAction.bounds.width += halfMover;
-//~ 			this.ddAction.location.x += halfMover + ( isOdd ? 1 : 0 );
-
-			// make your parents bigger so everybody looks nice
-//~ 			this.ddSet.parent.bounds.right += mover;
-//~ 			this.ddSet.parent.parent.bounds.right += mover;
 		}
 		
 		if ( ! this.runningFromBridge ) {
-//~ 			this.dlgMain.rbUseOpen.onClick = function() {
-//~ 				var d = FindDialog( this );
-//~ 				d.rbUseFolder.value = ! this.value;
-//~ 				d.cbOpenFirst.enabled = ! this.value;
-//~ 				d.btnSource.enabled = ! this.value;
-//~ 				d.stSource.enabled = ! this.value;
-//~ 				d.cbIncludeSubFolders.enabled = ! this.value;
-//~ 			}
-
-//~ 			this.dlgMain.rbUseFolder.onClick = function() {
-//~ 				var d = FindDialog( this );
-//~ 				d.rbUseOpen.value = ! this.value;
-//~ 				d.cbOpenFirst.enabled = this.value;
-//~ 				d.btnSource.enabled = this.value;
-//~ 				d.stSource.enabled = this.value;
-//~ 				d.cbIncludeSubFolders.enabled = this.value;
-//~ 			}
-
 			this.dlgMain.btnSource.onClick = function() { 
 				var d = FindDialog( this );
 				var selFolder = Folder.selectDialog( strPickSource, d.sourceLongText );
@@ -1128,26 +763,6 @@ function ImageProcessor() {
 			}
 
 		}
-
-//~ 		this.dlgMain.rbSaveInSame.onClick = function() {
-//~ 			var d = FindDialog( this );
-//~ 			d.rbSaveInNew.value = ! this.value;
-//~ 			d.btnDest.enabled = ! this.value;
-//~ 			d.stDest.enabled = ! this.value;
-//~ 			if ( ! d.ip.runningFromBridge ) {
-//~ 				d.cbKeepStructure.enabled = ! this.value;
-//~ 			}
-//~ 		}
-		
-//~ 		this.dlgMain.rbSaveInNew.onClick = function() {
-//~ 			var d = FindDialog( this );
-//~ 			d.rbSaveInSame.value = ! this.value;
-//~ 			d.btnDest.enabled = this.value;
-//~ 			d.stDest.enabled = this.value;
-//~ 			if ( ! d.ip.runningFromBridge ) {
-//~ 				d.cbKeepStructure.enabled = this.value;
-//~ 			}
-//~ 		}
 
 		this.dlgMain.SetDropDown = function ( dd, strSet ) {
 			var index = 0;
@@ -1163,46 +778,6 @@ function ImageProcessor() {
 			return index;
 		}
 
-//~ 		this.dlgMain.btnLoad.onClick = function() {
-//~  
-//~ 			var d = FindDialog( this );
-//~ 			var loadFile = null;
-//~ 			Folder.current = Folder( "~/" );
-//~ 			if ( File.fs == "Windows" ) {
-//~ 				loadFile = File.openDialog( strPickXML, strPickXMLWin );
-//~ 			} else {
-//~ 				loadFile = File.openDialog( strPickXML, MacXMLFilter );
-//~ 			}
-//~ 			if ( loadFile != null ) {
-//~ 				d.ip.LoadParamsFromDisk( loadFile );
-//~ 				d.ip.InitDialog();
-//~ 				d.loadFromDisk = true;
-//~ 				d.ip.ForceDialogUpdate();
-//~ 			}
-//~ 			d.defaultElement.active = true;
-//~ 		}
-		
-//~ 		this.dlgMain.btnSave.onClick = function() { 
-//~ 			var d = FindDialog( this );
-//~ 			var saveFile = null;
-//~ 			Folder.current = Folder( "~/" );
-//~ 			if ( File.fs == "Windows" ) {
-//~ 				saveFile = File.saveDialog( strPickXMLSave, strPickXMLWin );
-//~ 			} else {
-//~ 				saveFile = File.saveDialog( strPickXMLSave, MacXMLFilter );
-//~ 			}
-//~ 			if ( saveFile != null ) {
-//~ 				if ( saveFile.exists ) {
-//~ 					if ( confirm(strFileAlreadyExists) == false) {
-//~ 						return;
-//~ 					}
-//~ 				}
-//~ 				d.ip.GetParamsFromDialog();
-//~ 				d.ip.SaveParamsToDisk( saveFile );
-//~ 			}
-//~ 			d.defaultElement.active = true;
-//~ 		}
-
 		this.dlgMain.btnDest.onClick = function() { 
 			var d = FindDialog( this );
 			var selFolder = Folder.selectDialog( strPickDest, d.destLongText );
@@ -1213,75 +788,13 @@ function ImageProcessor() {
 			d.defaultElement.active = true;
 		}
 		
-//~ 		this.dlgMain.cbPSD.onClick = function() {
-//~ 			var d = FindDialog( this );
-//~ 			d.cbMaximize.enabled = this.value;
-//~ 			d.cbResizePSD.enabled = this.value;
-//~ 			d.cbResizePSD.onClick();
-//~ 		}
-		
-//~ 		this.dlgMain.cbTIFF.onClick = function() {
-//~ 			var d = FindDialog( this );
-//~ 			d.cbTIFFLZW.enabled = this.value;
-//~ 			d.cbResizeTIFF.enabled = this.value;
-//~ 			d.cbResizeTIFF.onClick();
-//~ 		}
-		
 		this.dlgMain.cbJPEG.onClick = function() {
 			var d = FindDialog( this );
 			d.stQuality.enabled = this.value;
 			d.etQuality.enabled = this.value;
              d.stImageCount.enabled = this.value;
              d.etImageCount.enabled = this.value;
-//~ 			d.cbConvertICC.enabled = this.value;
-//~ 			d.cbResizeJPEG.enabled = this.value;
-//~ 			d.cbResizeJPEG.onClick();
 		}
-
-//~ 		this.dlgMain.cbResizeJPEG.onClick = function( inValue ) {
-//~ 			var d = FindDialog( this );
-//~ 			var realValue = this.value;
-//~ 			if ( ! d.cbJPEG.value )
-//~ 				realValue = false;
-//~ 			d.stResizeJPEGW.enabled = realValue;
-//~ 			d.etResizeJPEGW.enabled = realValue;
-//~ 			d.stResizeJPEGPXW.enabled = realValue;
-//~ 			d.stResizeJPEGH.enabled = realValue;
-//~ 			d.etResizeJPEGH.enabled = realValue;
-//~ 			d.stResizeJPEGPXH.enabled = realValue;
-//~ 		}
-		
-//~ 		this.dlgMain.cbResizePSD.onClick = function( inValue ) {
-//~ 			var d = FindDialog( this );
-//~ 			var realValue = this.value;
-//~ 			if ( ! d.cbPSD.value )
-//~ 				realValue = false;
-//~ 			d.stResizePSDW.enabled = realValue;
-//~ 			d.etResizePSDW.enabled = realValue;
-//~ 			d.stResizePSDPXW.enabled = realValue;
-//~ 			d.stResizePSDH.enabled = realValue;
-//~ 			d.etResizePSDH.enabled = realValue;
-//~ 			d.stResizePSDPXH.enabled = realValue;
-//~ 		}
-		
-//~ 		this.dlgMain.cbResizeTIFF.onClick = function( inValue ) {
-//~ 			var d = FindDialog( this );
-//~ 			var realValue = this.value;
-//~ 			if ( ! d.cbTIFF.value )
-//~ 				realValue = false;
-//~ 			d.stResizeTIFFW.enabled = realValue;
-//~ 			d.etResizeTIFFW.enabled = realValue;
-//~ 			d.stResizeTIFFPXW.enabled = realValue;
-//~ 			d.stResizeTIFFH.enabled = realValue;
-//~ 			d.etResizeTIFFH.enabled = realValue;
-//~ 			d.stResizeTIFFPXH.enabled = realValue;
-//~ 		}
-
-//~ 		this.dlgMain.cbAction.onClick = function() {
-//~ 			var d = FindDialog( this );
-//~ 			d.ddSet.enabled = this.value;
-//~ 			d.ddAction.enabled = this.value;
-//~ 		}
     
          //populate template drop down using file names in tempates folder
           var templateFolder = new Folder('C:\\Adobe\\templates');
@@ -1296,67 +809,11 @@ function ImageProcessor() {
       
           //set the display values for the drop down
           this.dlgMain.SetDropDown( this.dlgMain.ddTemplate, this.params["template"] );
-          
-//~ 		if ( this.actionInfo.length > 0 ) {
-//~ 			for ( var i = 0; i < this.actionInfo.length; i++ ) {
-//~ 				this.dlgMain.ddSet.add( "item", this.actionInfo[i].name );
-//~ 			}
-//~ 			this.dlgMain.ddSet.items[0].selected = true;
-//~ 			this.dlgMain.ddSet.onChange = function( forcedSelectionIndex ) {
-//~ 				var index = 0;
-//~ 				var d = FindDialog( this );
-//~ 				d.ddAction.removeAll();
-//~ 				if ( undefined == forcedSelectionIndex ) {
-//~ 					forcedSelectionIndex = this.selection.index;
-//~ 					if ( undefined != d.ip.actionIndex ) {
-//~ 						index = d.ip.actionIndex;
-//~ 						d.ip.actionIndex = undefined;
-//~ 					}
-//~ 				}
-//~ 				for ( var i = 0; i < d.ip.actionInfo[ forcedSelectionIndex ].children.length; i++ ) {
-//~ 					d.ddAction.add( "item", d.ip.actionInfo[ forcedSelectionIndex ].children[ i ].name );
-//~ 				}
-//~ 				if ( d.ddAction.items.length > 0 ) {
-//~ 					d.ddAction.items[ index ].selected = true;
-//~ 				}
-//~ 				if ( null != this.selection ) {
-//~ 					this.helpTip = this.selection.text;
-//~ 				}
-//~ 			}
-//~ 		} else {
-//~ 			this.dlgMain.grpLeft.grpAction.enabled = false;
-//~ 		}
-	
-//~ 		this.dlgMain.ddAction.onChange = function() {
-//~ 			this.helpTip = this.selection.text;
-//~ 		}
-
-		// do not allow anything except for numbers 0-9
-		//this.dlgMain.etQuality.addEventListener ('keydown', NumericEditKeyboardHandler);
-
-		// do not allow anything except for numbers 0-9
-		//this.dlgMain.etResizeJPEGW.addEventListener ('keydown', NumericEditKeyboardHandler);
-
-		// do not allow anything except for numbers 0-9
-		//this.dlgMain.etResizeJPEGH.addEventListener ('keydown', NumericEditKeyboardHandler);
-
-		// do not allow anything except for numbers 0-9
-		//this.dlgMain.etResizeTIFFW.addEventListener ('keydown', NumericEditKeyboardHandler);
-
-		// do not allow anything except for numbers 0-9
-		//this.dlgMain.etResizeTIFFH.addEventListener ('keydown', NumericEditKeyboardHandler);
-
-		// do not allow anything except for numbers 0-9
-		//this.dlgMain.etResizePSDW.addEventListener ('keydown', NumericEditKeyboardHandler);
-
-		// do not allow anything except for numbers 0-9
-		//this.dlgMain.etResizePSDH.addEventListener ('keydown', NumericEditKeyboardHandler);
 
 		this.dlgMain.btnRun.onClick = function () {
 			var testFolder = null;
 			var d = FindDialog( this );
 			if ( ! this.runningFromBridge ) {
-//~ 				if ( this.rbUseFolder ) {
 					if ( d.sourceLongText.length > 0 && d.sourceLongText[0] != '.' ) {
 						testFolder = new Folder( d.sourceLongText );
 						if ( !testFolder.exists ) {
@@ -1367,10 +824,8 @@ function ImageProcessor() {
 						alert( strSpecifySource );
 						return;
 					}
-//~ 				}
 			}
 
-//~ 			if ( d.rbSaveInNew.value ) {
 				if ( d.destLongText.length > 0 && d.destLongText[0] != '.' ) {
 					testFolder = new Folder( d.destLongText );
 					if ( !testFolder.exists ) {
@@ -1381,7 +836,6 @@ function ImageProcessor() {
 					alert( strSpecifyDest );
 					return;
 				}
-//~ 			}
 						
 			if ( d.cbJPEG.value ) {
 				var q = Number( d.etQuality.text );
@@ -1395,49 +849,13 @@ function ImageProcessor() {
 					alert( strJPEGImageCount );
 					return;
 				}
-
-//~ 			    if ( d.cbResizeJPEG.value ) {
-//~ 				    var w = Number( d.etResizeJPEGW.text );
-//~ 				    var h = Number( d.etResizeJPEGH.text );
-//~ 			        if ( isNaN( w ) || w < 1 || w > gMaxResize ||
-//~ 			             isNaN( h ) || h < 1 || h > gMaxResize ) {
-//~ 					    alert( strJPEGWandH );
-//~ 					    return;
-//~ 				    }
-//~ 			    }
 			}
-
-//~ 			if ( d.cbTIFF.value && d.cbResizeTIFF.value ) {
-//~ 				var w = Number( d.etResizeTIFFW.text );
-//~ 				var h = Number( d.etResizeTIFFH.text );
-//~ 			    if ( isNaN( w ) || w < 1 || w > gMaxResizeTIFF ||
-//~ 			         isNaN( h ) || h < 1 || h > gMaxResizeTIFF ) {
-//~ 					alert( strTIFFWandH );
-//~ 					return;
-//~ 				}
-//~ 			}
-
-//~ 			if ( d.cbPSD.value && d.cbResizePSD.value ) {
-//~ 				var w = Number( d.etResizePSDW.text );
-//~ 				var h = Number( d.etResizePSDH.text );
-//~ 			    if ( isNaN( w ) || w < 1 || w > gMaxResize ||
-//~ 			         isNaN( h ) || h < 1 || h > gMaxResize ) {
-//~ 					alert( strPSDWandH );
-//~ 					return;
-//~ 				}
-//~ 			}
 
 			// make sure they have at least one file format specified for output
 			var outputCount = 0;
 			if ( d.cbJPEG.value ) {
 				outputCount++;
 			}
-//~ 			if ( d.cbPSD.value ) {
-//~ 				outputCount++;
-//~ 			}
-//~ 			if ( d.cbTIFF.value ) {
-//~ 				outputCount++;
-//~ 			}
 
 			if ( outputCount == 0 ) {
 				alert( strOneType );
@@ -1476,20 +894,10 @@ function ImageProcessor() {
 			inputFiles = this.filesFromBridge;
 		} else if ( this.params["useopen"] ) {
 			inputFiles = OpenDocs();
-//~ 		} else if ( this.params["includesub"] ) {
 		} else  {
 			inputFiles = new Array();
 			inputFiles = FindAllFiles( this.params["source"], inputFiles );
-		} //else {
-//~ 			inputFiles = Folder ( this.params["source"] ).getFiles ();
-//~ 		}
-
-//~         var rememberMaximize;
-//~         var needMaximize = this.params["max"] ? QueryStateType.ALWAYS : QueryStateType.NEVER;
-//~         if ( this.params["psd"] && app.preferences.maximizeCompatibility != needMaximize ) {
-//~             rememberMaximize = app.preferences.maximizeCompatibility;
-//~             app.preferences.maximizeCompatibility = needMaximize;
-//~         }
+		} 
             
 		for (var i = 0; i < inputFiles.length; i++) {
 
@@ -1534,14 +942,10 @@ function ImageProcessor() {
 
 						this.AdjustFile( cameraRawParams );
 
-//~ 						if ( this.params["saveinsame"] ) {
                             var destFolder = inputFiles[i].parent.toString();
                             if ( ! this.runningFromBridge && this.params["useopen"] ) {
                                 var destFolder = inputFiles[i].fullName.parent.toString();
                             }
-//~ 						} else {
-//~ 							var destFolder = Folder(this.params["dest"]).absoluteURI.toString();
-//~ 						}
 
 						this.SaveFile( cameraRawParams.fileName, destFolder  );
 						app.activeDocument.close( SaveOptions.DONOTSAVECHANGES );
@@ -1561,10 +965,6 @@ function ImageProcessor() {
 				this.fileErrors.push( inputFiles[i] );
 			}
 		}
-		
-//~ 		if ( rememberMaximize != undefined ) {
-//~             app.preferences.maximizeCompatibility = rememberMaximize;
-//~         }
 
         if ( ! gFoundFileToProcess )
 			alert( strNoOpenableFiles );
@@ -1598,21 +998,12 @@ function ImageProcessor() {
 		fileNameNoPath = fileNameNoPath.substr( lastSlash + 1, fileNameNoPath.length );
 		var filePathNoName = inFileName.substr( 0 , lastSlash );
 		if ( this.params["jpeg"] ) {
-//~ 			if ( ! this.runningFromBridge && this.params["keepstructure"] && ! this.params["saveinsame"] ) {
-//~ 				var subFolderText = filePathNoName;
-//~ 				subFolderText = subFolderText.replace( this.params["source"], inFolderLocation);
-//~ 				subFolderText += "/";
-//~ 			} else {
 			var subFolderText = inFolderLocation + "/JPEG/";
-//~ 			}
 			Folder( subFolderText ).create();
 			var historyState = app.activeDocument.activeHistoryState;
 			app.activeDocument.flatten();
 			app.activeDocument.bitsPerChannel = BitsPerChannelType.EIGHT;
 			RemoveAlphaChannels();
-//~ 			if ( this.params["converticc"] ) {
-//~ 				ConvertTosRGBProfile();
-//~ 			}
 			if ( this.params["jpegresize"] ) {
 				FitImage( this.params["jpegw"], this.params["jpegh"] ); 
 			}
@@ -1626,61 +1017,10 @@ function ImageProcessor() {
 			if ( ! IsFolderWritable( subFolderText ) ) {
 				alert( strCannotWriteToFolder + File( subFolderText ).fsName );
 			} else {
-//~ 				SaveAsJPEG( uniqueFileName, this.params["q"], this.params["icc"] );
 				SaveAsJPEG( uniqueFileName, this.params["q"] );
 			}
 			app.activeDocument.activeHistoryState = historyState;
 		}
-		
-//~ 		if ( this.params["psd"] ) {
-//~ 			if ( ! this.runningFromBridge && this.params["keepstructure"] && ! this.params["saveinsame"] ) {
-//~ 				var subFolderText = filePathNoName;
-//~ 				subFolderText = subFolderText.replace( this.params["source"], inFolderLocation);
-//~ 				subFolderText += "/";
-//~ 			} else {
-//~ 			var subFolderText = inFolderLocation + "/PSD/";
-//~ 			}
-//~ 			Folder( subFolderText ).create();
-//~ 			var historyState = app.activeDocument.activeHistoryState;
-//~ 			if ( this.params["psdresize"] ) {
-//~ 				FitImage( this.params["psdw"], this.params["psdh"] ); 
-//~ 			}
-//~ 			if ( this.params["runaction"] ) {
-//~ 				doAction( this.params["action"], this.params["actionset"] );
-//~ 			}
-//~ 			var uniqueFileName = CreateUniqueFileName( subFolderText, fileNameNoPath, ".psd" );
-//~ 			if ( ! IsFolderWritable( subFolderText ) ) {
-//~ 				alert( strCannotWriteToFolder + File( subFolderText ).fsName );
-//~ 			} else {
-//~ 				SaveAsPSD( uniqueFileName, this.params["icc"] );
-//~ 			}
-//~ 			app.activeDocument.activeHistoryState = historyState;
-//~ 		}
-		
-//~ 		if ( this.params["tiff"] ) {
-//~ 			if ( ! this.runningFromBridge && this.params["keepstructure"] && ! this.params["saveinsame"] ) {
-//~ 				var subFolderText = filePathNoName;
-//~ 				subFolderText = subFolderText.replace( this.params["source"], inFolderLocation);
-//~ 				subFolderText += "/";
-//~ 			} else {
-//~ 			var subFolderText = inFolderLocation + "/TIFF/";
-//~ 			}
-//~ 			Folder( subFolderText ).create();
-//~ 			var historyState = app.activeDocument.activeHistoryState;
-//~ 			if ( this.params["tiffresize"] ) {
-//~ 				FitImage( this.params["tiffw"], this.params["tiffh"] ); 
-//~ 			}
-//~ 			if ( this.params["runaction"] ) {
-//~ 				doAction( this.params["action"], this.params["actionset"] );
-//~ 			}
-//~ 			var uniqueFileName = CreateUniqueFileName( subFolderText, fileNameNoPath, ".tif" );
-//~ 			if ( ! IsFolderWritable( subFolderText ) ) {
-//~ 				alert( strCannotWriteToFolder + File( subFolderText ).fsName );
-//~ 			} else {
-//~ 				SaveAsTIFF( uniqueFileName, this.params["icc"], this.params["lzw"] );
-//~ 			}
-//~ 			app.activeDocument.activeHistoryState = historyState;
-//~ 		}
 	}
 		
 	// open a camera raw file returning the camera raw action desc
@@ -1766,13 +1106,9 @@ function ImageProcessor() {
 
 	// initialize properties
 	this.fileErrors = new Array();
-
 	this.params = g_initParams.initParams();
-
 	this.actionInfo = GetActionSetInfo();
-	
-	this.ConfigForBridge();
-	
+	this.ConfigForBridge();	
 }
 
 
@@ -1783,23 +1119,6 @@ function SaveAsJPEG( inFileName, inQuality ) {
 	jpegOptions.embedColorProfile = false;
 	app.activeDocument.saveAs( File( inFileName ), jpegOptions );
 }
-	
-//~ function SaveAsPSD( inFileName, inEmbedICC ) {
-//~ 	var psdSaveOptions = new PhotoshopSaveOptions();
-//~     psdSaveOptions.embedColorProfile = inEmbedICC;
-//~ 	app.activeDocument.saveAs( File( inFileName ), psdSaveOptions );
-//~ }
-//~ 	
-//~ function SaveAsTIFF( inFileName, inEmbedICC, inLZW ) {
-//~ 	var tiffSaveOptions = new TiffSaveOptions();
-//~     tiffSaveOptions.embedColorProfile = inEmbedICC;
-//~     if ( inLZW ) {
-//~ 		tiffSaveOptions.imageCompression = TIFFEncoding.TIFFLZW;
-//~ 	} else {
-//~ 		tiffSaveOptions.imageCompression = TIFFEncoding.NONE;
-//~ 	}	
-//~ 	app.activeDocument.saveAs( File( inFileName ), tiffSaveOptions );
-//~ }
 
 // use the fit image automation plug-in to do this work for me
 function FitImage( inWidth, inHeight ) {
@@ -1941,17 +1260,6 @@ function RemoveAlphaChannels() {
 		channelCount--;
 	}
 }
-
-///////////////////////////////////////////////////////////////////////////////
-// Function: ConvertTosRGBProfile
-// Usage: Convert to sRGB profile
-// Input: <none> (must be an active document)
-// Return: activeDocument is now in sRGB profile
-///////////////////////////////////////////////////////////////////////////////
-//~ function ConvertTosRGBProfile() {
-//~ 	app.activeDocument.convertProfile("sRGB IEC61966-2.1", Intent.RELATIVECOLORIMETRIC, true, true);
-//~ }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // Function: GetScriptNameForXML
@@ -2180,42 +1488,6 @@ function OpenDocs() {
 	}
 	return docs;
 }
-
-///////////////////////////////////////////////////////////////////////////////
-// Function: ConditionalModeChangeToRGB
-// Usage: Convert the front document to RGB no matter what the original space is
-// Input: <none>
-// Return: activeDocument is now in RGB mode, this actually is another script now
-///////////////////////////////////////////////////////////////////////////////
-//~ function ConditionalModeChangeToRGB() {
-//~ 	var eventModeChange = stringIDToTypeID( "8cba8cd6-cb66-11d1-bc43-0060b0a13dc4" );
-//~ 	var descSource = new ActionDescriptor();
-//~ 	var keySourceMode = charIDToTypeID( "SrcM" );
-//~ 	var list = new ActionList();
-//~ 	var keyCondition = charIDToTypeID( "Cndn" );
-//~ 	var keyBitmap = charIDToTypeID( "UBtm" );
-//~ 	var keyGrayscale = charIDToTypeID( "UGry" );
-//~ 	var keyDuotone = charIDToTypeID( "UDtn" );
-//~ 	var keyIndex = charIDToTypeID( "UInd" );
-//~ 	var keyRGB = charIDToTypeID( "URGB" );
-//~ 	var keyCMYK = charIDToTypeID( "UCMY" );
-//~ 	var keyLab = charIDToTypeID( "ULab" );
-//~ 	var keyMultichannel = charIDToTypeID( "UMlt" );
-//~ 	list.putEnumerated( keyCondition, keyBitmap );
-//~ 	list.putEnumerated( keyCondition, keyGrayscale );
-//~ 	list.putEnumerated( keyCondition, keyDuotone );
-//~ 	list.putEnumerated( keyCondition, keyIndex );
-//~ 	list.putEnumerated( keyCondition, keyRGB );
-//~ 	list.putEnumerated( keyCondition, keyCMYK );
-//~ 	list.putEnumerated( keyCondition, keyLab );
-//~ 	list.putEnumerated( keyCondition, keyMultichannel );
-//~ 	descSource.putList( keySourceMode, list );
-//~ 	var keyDestination = charIDToTypeID( "DstM" );
-//~ 	var descDest = new ActionDescriptor();
-//~ 	var keyRGB = charIDToTypeID( "RGBM" );
-//~ 	descSource.putObject( keyDestination, keyRGB, descDest );
-//~ 	executeAction( eventModeChange, descSource, DialogModes.NO );
-//~ }
 
 ///////////////////////////////////////////////////////////////////////////////
 // Function: FindAllFiles
